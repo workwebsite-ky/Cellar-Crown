@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cellar Crown Services — Residential deep cleaning, commercial cleaning, move-in/out, post-construction, and luxury home maintenance. Premium professional cleaning services." />
+  <meta name="keywords" content="professional cleaning services, residential cleaning, commercial cleaning, deep cleaning services, move out cleaning, post construction cleaning" />
+  <title>Services | Cellar Crown Premium Cleaning</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .service-detail {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .service-detail:nth-child(even) { background: var(--surface); }
+    .service-detail__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .service-detail:nth-child(even) .service-detail__inner {
+      direction: rtl;
+    }
+    .service-detail:nth-child(even) .service-detail__content {
+      direction: ltr;
+    }
+    .service-detail__img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .service-detail__icon {
+      width: 56px; height: 56px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .service-detail__title {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .service-detail__desc {
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .service-detail__includes h4 {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .service-detail__includes ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+      margin-bottom: 28px;
+    }
+    .service-detail__includes li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .service-detail__includes li i { color: var(--gold); font-size: 0.7rem; }
+    .process { background: var(--primary); }
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .process-step {
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .process-step:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-6px);
+    }
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 50%; right: -13px;
+      width: 24px; height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+    .process-step:last-child::after { display: none; }
+    .process-step__num {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .process-step__icon {
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .process-step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .process-step p { font-size: 0.84rem; color: var(--gray); }
+    @media (max-width: 1024px) {
+      .service-detail__inner { grid-template-columns: 1fr; direction: ltr !important; gap: 36px; }
+      .service-detail:nth-child(even) .service-detail__inner { direction: ltr; }
+      .service-detail__img { height: 300px; }
+      .process__grid { grid-template-columns: repeat(2, 1fr); }
+      .process-step::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      .process__grid { grid-template-columns: 1fr; }
+      .service-detail__includes ul { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav scrolled">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">Cellar Crown</span>
+      <span class="nav__logo-sub">Premium Cleaning</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav__cta">Book Now</a>
+    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="text-align:center;">Book Now</a>
+</div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="page-header">
+  <div class="container page-header__content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Services</span>
+    </div>
+    <span class="tag">What We Offer</span>
+    <h1>Our Premium <span class="gold">Services</span></h1>
+    <div class="divider left" style="margin-bottom:16px;"></div>
+    <p>Expertly crafted cleaning solutions for every home, business, and lifestyle. Discover the full Cellar Crown service suite below.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICE: RESIDENTIAL ============ -->
+<section class="service-detail" id="residential">
+  <div class="container">
+    <div class="service-detail__inner">
+      <div class="reveal-left">
+        <img src="images/residential-cleaning.jpg" alt="Residential deep cleaning service" class="service-detail__img" loading="lazy" />
+      </div>
+      <div class="service-detail__content reveal-right">
+        <div class="service-detail__icon"><i class="fas fa-house"></i></div>
+        <span class="tag">Most Popular</span>
+        <h2 class="service-detail__title">Residential Deep Cleaning</h2>
+        <p class="service-detail__desc">Our flagship residential cleaning service is a comprehensive, top-to-bottom transformation of your home. Using professional-grade equipment and premium eco-friendly solutions, our specialists tackle every surface, corner, and hidden space with meticulous care and expertise.</p>
+        <p class="service-detail__desc">Perfect for seasonal refreshes, pre-party preparation, post-event cleanup, or simply maintaining the pristine environment you deserve.</p>
+        <div class="service-detail__includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> All rooms vacuumed & mopped</li>
+            <li><i class="fas fa-check"></i> Dusting all surfaces & fixtures</li>
+            <li><i class="fas fa-check"></i> Bathroom deep scrub</li>
+            <li><i class="fas fa-check"></i> Kitchen surfaces & appliances</li>
+            <li><i class="fas fa-check"></i> Windows & mirrors polished</li>
+            <li><i class="fas fa-check"></i> Baseboards & trim wiped</li>
+            <li><i class="fas fa-check"></i> Trash removed & bins cleaned</li>
+            <li><i class="fas fa-check"></i> Interior cabinet wipe-down</li>
+          </ul>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE: COMMERCIAL ============ -->
+<section class="service-detail" id="commercial">
+  <div class="container">
+    <div class="service-detail__inner">
+      <div class="reveal-left">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Commercial office cleaning service" class="service-detail__img" loading="lazy" />
+      </div>
+      <div class="service-detail__content reveal-right">
+        <div class="service-detail__icon"><i class="fas fa-building"></i></div>
+        <span class="tag">Business Solutions</span>
+        <h2 class="service-detail__title">Commercial Cleaning</h2>
+        <p class="service-detail__desc">Your business environment speaks volumes about your brand. Cellar Crown's commercial cleaning service maintains the professional, welcoming atmosphere that impresses clients, motivates employees, and reflects your company's standards.</p>
+        <p class="service-detail__desc">We work around your schedule — evenings, weekends, or early mornings — so your business operations are never disrupted.</p>
+        <div class="service-detail__includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Office spaces & workstations</li>
+            <li><i class="fas fa-check"></i> Reception & common areas</li>
+            <li><i class="fas fa-check"></i> Restrooms sanitized</li>
+            <li><i class="fas fa-check"></i> Kitchen & break room</li>
+            <li><i class="fas fa-check"></i> Floor care & carpet cleaning</li>
+            <li><i class="fas fa-check"></i> Glass & window cleaning</li>
+            <li><i class="fas fa-check"></i> Trash removal & recycling</li>
+            <li><i class="fas fa-check"></i> High-touch point disinfection</li>
+          </ul>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Get a Quote <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE: MOVE IN/OUT ============ -->
+<section class="service-detail" id="move">
+  <div class="container">
+    <div class="service-detail__inner">
+      <div class="reveal-left">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Move in move out cleaning service" class="service-detail__img" loading="lazy" />
+      </div>
+      <div class="service-detail__content reveal-right">
+        <div class="service-detail__icon"><i class="fas fa-truck-moving"></i></div>
+        <span class="tag">Stress-Free Transitions</span>
+        <h2 class="service-detail__title">Move In / Move Out Cleaning</h2>
+        <p class="service-detail__desc">Moving is already stressful enough. Let Cellar Crown handle the deep cleaning so you can focus on the exciting journey ahead. Our move cleaning service is so thorough, landlords and property managers consistently give full deposit returns.</p>
+        <p class="service-detail__desc">Moving in? We'll ensure your new space is hygienically clean and truly yours from day one.</p>
+        <div class="service-detail__includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Inside & outside cabinets</li>
+            <li><i class="fas fa-check"></i> Full appliance cleaning</li>
+            <li><i class="fas fa-check"></i> Deep bathroom scrub</li>
+            <li><i class="fas fa-check"></i> Walls & light switches</li>
+            <li><i class="fas fa-check"></i> Closets & storage areas</li>
+            <li><i class="fas fa-check"></i> Window tracks & sills</li>
+            <li><i class="fas fa-check"></i> All floors deep cleaned</li>
+            <li><i class="fas fa-check"></i> Garage sweeping</li>
+          </ul>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE: POST-CONSTRUCTION ============ -->
+<section class="service-detail" id="construction">
+  <div class="container">
+    <div class="service-detail__inner">
+      <div class="reveal-left">
+        <img src="https://images.unsplash.com/photo-1600585153490-76fb20a32601?w=800&q=80" alt="Post-construction cleaning service" class="service-detail__img" loading="lazy" />
+      </div>
+      <div class="service-detail__content reveal-right">
+        <div class="service-detail__icon"><i class="fas fa-hard-hat"></i></div>
+        <span class="tag">Post-Renovation</span>
+        <h2 class="service-detail__title">Post-Construction Cleaning</h2>
+        <p class="service-detail__desc">Construction and renovation projects leave behind dust, debris, adhesive residue, and paint splatters that require specialized equipment and expertise to remove. Our post-construction cleaning team is trained to handle the toughest residues safely and efficiently.</p>
+        <p class="service-detail__desc">We transform your newly renovated space from a construction site to a pristine, move-in-ready environment.</p>
+        <div class="service-detail__includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Construction dust removal</li>
+            <li><i class="fas fa-check"></i> Paint & adhesive removal</li>
+            <li><i class="fas fa-check"></i> Window & glass polishing</li>
+            <li><i class="fas fa-check"></i> Floor cleaning & polishing</li>
+            <li><i class="fas fa-check"></i> Debris & waste removal</li>
+            <li><i class="fas fa-check"></i> HVAC vent cleaning</li>
+            <li><i class="fas fa-check"></i> Fixture & hardware polish</li>
+            <li><i class="fas fa-check"></i> Final sanitization pass</li>
+          </ul>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Request Quote <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE: LUXURY MAINTENANCE ============ -->
+<section class="service-detail" id="luxury">
+  <div class="container">
+    <div class="service-detail__inner">
+      <div class="reveal-left">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="Luxury home maintenance cleaning" class="service-detail__img" loading="lazy" />
+      </div>
+      <div class="service-detail__content reveal-right">
+        <div class="service-detail__icon"><i class="fas fa-crown"></i></div>
+        <span class="tag">Premium Recurring</span>
+        <h2 class="service-detail__title">Luxury Home Maintenance</h2>
+        <p class="service-detail__desc">For discerning homeowners who expect nothing less than perfection, our Luxury Maintenance Plan provides continuous, bespoke care for your home. A dedicated team learns the nuances of your space, your preferences, and your standards.</p>
+        <p class="service-detail__desc">Available weekly, bi-weekly, or monthly — always the same trusted team, always the same crown-level quality.</p>
+        <div class="service-detail__includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Full home maintenance clean</li>
+            <li><i class="fas fa-check"></i> Dedicated recurring team</li>
+            <li><i class="fas fa-check"></i> Priority scheduling</li>
+            <li><i class="fas fa-check"></i> Seasonal deep clean upgrades</li>
+            <li><i class="fas fa-check"></i> Custom checklist per home</li>
+            <li><i class="fas fa-check"></i> Fragrance preference options</li>
+            <li><i class="fas fa-check"></i> Concierge communication</li>
+            <li><i class="fas fa-check"></i> Discounted add-on services</li>
+          </ul>
+        </div>
+        <a href="packages.html" class="btn btn-primary">View Packages <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="tag">How It Works</span>
+      <h2 class="section-title">Simple. Seamless. Spotless.</h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-top:16px;">Booking your Cellar Crown cleaning takes minutes. The results last far longer.</p>
+    </div>
+    <div class="process__grid">
+      <div class="process-step reveal delay-1">
+        <div class="process-step__num">01</div>
+        <div class="process-step__icon"><i class="fas fa-calendar-check"></i></div>
+        <h3>Book Online</h3>
+        <p>Fill out our simple contact form or email us. We respond within 2 hours to confirm your appointment.</p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="process-step__num">02</div>
+        <div class="process-step__icon"><i class="fas fa-clipboard-list"></i></div>
+        <h3>Custom Plan</h3>
+        <p>We discuss your specific needs and create a tailored cleaning plan designed for your home.</p>
+      </div>
+      <div class="process-step reveal delay-3">
+        <div class="process-step__num">03</div>
+        <div class="process-step__icon"><i class="fas fa-broom"></i></div>
+        <h3>We Clean</h3>
+        <p>Our vetted team arrives fully equipped and executes your cleaning with precision and care.</p>
+      </div>
+      <div class="process-step reveal delay-4">
+        <div class="process-step__num">04</div>
+        <div class="process-step__icon"><i class="fas fa-star"></i></div>
+        <h3>You Enjoy</h3>
+        <p>Return to a spotless, fresh home. Your satisfaction is guaranteed — every single time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-banner">
+  <div class="container cta-banner__inner reveal">
+    <h2 class="cta-banner__title">Not Sure Which Service You Need?</h2>
+    <p class="cta-banner__sub">Our team will help you find the perfect cleaning solution. Contact us for a free consultation and personalized quote.</p>
+    <div class="cta-banner__actions">
+      <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Get a Free Quote</a>
+      <a href="packages.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">View Pricing <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">Cellar Crown</div>
+        <div class="footer__brand-tag">Premium Cleaning Services</div>
+        <p class="footer__brand-desc">Delivering white-glove cleaning excellence to homes and businesses.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#residential">Residential Deep Clean</a></li>
+          <li><a href="#commercial">Commercial Cleaning</a></li>
+          <li><a href="#move">Move In / Move Out</a></li>
+          <li><a href="#construction">Post-Construction</a></li>
+          <li><a href="#luxury">Luxury Maintenance</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Us</h4>
+        <div class="footer__contact-item"><i class="fas fa-envelope"></i><span>contactglanders@gmail.com</span></div>
+        <div class="footer__contact-item"><i class="fas fa-phone"></i><span>+1 (800) 000-0000</span></div>
+        <div class="footer__contact-item"><i class="fas fa-clock"></i><span>Mon–Sat: 7:00 AM – 7:00 PM</span></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Cellar Crown. All rights reserved.</p>
+      <div class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<!-- WhatsApp Chat Widget -->
+<div id="whatsapp-widget">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup__header">
+      <div class="wa-popup__avatar"><i class="fab fa-whatsapp"></i></div>
+      <div class="wa-popup__info">
+        <h4>Cellar Crown</h4>
+        <p>Online — typically replies instantly</p>
+      </div>
+    </div>
+    <div class="wa-popup__body">
+      <div class="wa-chat-bubble">Hi there! 👋 Ready for a spotless home? Chat with us on WhatsApp for a fast quote or to book your cleaning today.</div>
+    </div>
+    <div class="wa-popup__footer">
+      <div class="wa-input-row">
+        <input type="text" id="waMessage" placeholder="Type a message..." />
+        <button class="wa-send-btn" id="waSendBtn" aria-label="Send WhatsApp message"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+  <button id="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" id="waIcon"></i>
+    <span class="wa-badge">1</span>
+  </button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

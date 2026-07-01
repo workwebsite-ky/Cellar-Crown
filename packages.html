@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cellar Crown Pricing Packages — Affordable luxury cleaning plans. Essential Crown, Royal Crown, and Imperial Crown packages for residential and commercial cleaning." />
+  <meta name="keywords" content="cleaning service pricing, cleaning packages, residential cleaning cost, commercial cleaning price, luxury cleaning plans" />
+  <title>Packages & Pricing | Cellar Crown Premium Cleaning</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .pricing-hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: calc(var(--nav-h) + 60px) 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -20%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.07), transparent 60%);
+    }
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .toggle-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color 0.3s;
+    }
+    .toggle-label.active { color: var(--white); }
+    .toggle {
+      width: 56px; height: 28px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      transition: transform 0.3s var(--ease);
+    }
+    .toggle.on::after { transform: translateX(28px); }
+    .toggle.on { background: rgba(201,168,76,0.2); }
+    .save-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--gold);
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+    .compare-section { background: var(--surface); }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+    .compare-table th, .compare-table td {
+      padding: 16px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 600;
+      padding-bottom: 20px;
+    }
+    .compare-table td:first-child { text-align: left; color: var(--gray); }
+    .compare-table th:nth-child(3) { color: var(--gold); }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .compare-table .check { color: var(--gold); }
+    .compare-table .cross { color: var(--gray-dark); }
+    .addons { background: var(--primary); }
+    .addons__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .addon-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 30px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: all 0.4s var(--ease);
+    }
+    .addon-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
+    }
+    .addon-card__icon {
+      width: 46px; height: 46px;
+      min-width: 46px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .addon-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .addon-card p { font-size: 0.83rem; color: var(--gray); }
+    .addon-card .price { color: var(--gold); font-weight: 700; font-size: 0.9rem; margin-top: 8px; }
+    @media (max-width: 768px) {
+      .addons__grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.78rem; }
+      .compare-table th, .compare-table td { padding: 12px 10px; }
+    }
+    @media (max-width: 480px) {
+      .compare-table { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav scrolled">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">Cellar Crown</span>
+      <span class="nav__logo-sub">Premium Cleaning</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="packages.html" class="active">Packages</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav__cta">Book Now</a>
+    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="text-align:center;">Book Now</a>
+</div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="pricing-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Packages</span>
+    </div>
+    <div class="text-center">
+      <span class="tag">Transparent Pricing</span>
+      <h1 class="section-title reveal" style="font-size:clamp(2.2rem,5vw,3.8rem);">Choose Your <span class="gold">Crown</span></h1>
+      <div class="divider" style="margin-bottom:16px;"></div>
+      <p style="color:var(--gray);max-width:520px;margin:0 auto;">No hidden fees. No surprises. Just crystal-clear, honest pricing for premium cleaning services.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING PLANS ============ -->
+<section class="section pricing">
+  <div class="container">
+    <!-- Toggle -->
+    <div class="toggle-wrap reveal">
+      <span class="toggle-label active" id="toggleOneTime">One-Time</span>
+      <div class="toggle" id="billingToggle"></div>
+      <span class="toggle-label" id="toggleRecurring">Recurring</span>
+      <span class="save-tag">Save 20%</span>
+    </div>
+
+    <div class="pricing__grid">
+
+      <!-- Essential Crown -->
+      <div class="price-card reveal delay-1">
+        <div class="price-card__tier">Tier 1</div>
+        <div class="price-card__name">Essential Crown</div>
+        <div class="price-card__amount">
+          <span class="price-card__cur">$</span>
+          <span class="price-card__num" id="p1">149</span>
+          <span class="price-card__per">/ visit</span>
+        </div>
+        <p class="price-card__desc">The perfect entry into the Cellar Crown experience. Ideal for regular upkeep of smaller homes and apartments.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature"><i class="fas fa-check"></i> Up to 2-bedroom home</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Full vacuuming & mopping</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Bathroom & kitchen clean</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Dusting all surfaces</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Trash removal</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Eco-certified products</li>
+          <li class="price-card__feature crossed"><i class="fas fa-times"></i> Inside appliances</li>
+          <li class="price-card__feature crossed"><i class="fas fa-times"></i> Window interior clean</li>
+          <li class="price-card__feature crossed"><i class="fas fa-times"></i> Laundry service</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">
+          Book Essential <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Royal Crown (Featured) -->
+      <div class="price-card featured reveal delay-2">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-card__tier">Tier 2</div>
+        <div class="price-card__name">Royal Crown</div>
+        <div class="price-card__amount">
+          <span class="price-card__cur">$</span>
+          <span class="price-card__num" id="p2">249</span>
+          <span class="price-card__per">/ visit</span>
+        </div>
+        <p class="price-card__desc">Our most popular package. A comprehensive deep clean delivering the true Cellar Crown royal experience for homes up to 4 bedrooms.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature"><i class="fas fa-check"></i> Up to 4-bedroom home</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Full deep clean</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Inside oven & fridge</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Interior windows cleaned</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Baseboards & light fixtures</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Cabinet interiors</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Premium products</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Priority scheduling</li>
+          <li class="price-card__feature crossed"><i class="fas fa-times"></i> Laundry & linen service</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">
+          Book Royal <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Imperial Crown -->
+      <div class="price-card reveal delay-3">
+        <div class="price-card__tier">Tier 3</div>
+        <div class="price-card__name">Imperial Crown</div>
+        <div class="price-card__amount">
+          <span class="price-card__cur">$</span>
+          <span class="price-card__num" id="p3">399</span>
+          <span class="price-card__per">/ visit</span>
+        </div>
+        <p class="price-card__desc">The pinnacle of cleaning luxury. Unlimited rooms, every service included — the complete white-glove treatment for your estate.</p>
+        <ul class="price-card__features">
+          <li class="price-card__feature"><i class="fas fa-check"></i> Unlimited rooms</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Full Royal package included</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Laundry & linen service</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Dedicated cleaning team</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Garage & outdoor areas</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Luxury fragrance option</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Same-day availability</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Concierge support</li>
+          <li class="price-card__feature"><i class="fas fa-check"></i> Satisfaction guarantee</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">
+          Book Imperial <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <p class="text-center" style="color:var(--gray);font-size:0.84rem;margin-top:30px;">
+      * Prices shown for standard residential homes. Contact us for custom commercial or large estate pricing. All prices subject to final assessment.
+    </p>
+  </div>
+</section>
+
+<!-- ============ COMPARE TABLE ============ -->
+<section class="section compare-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="tag">Full Comparison</span>
+      <h2 class="section-title">Package Breakdown</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Feature</th>
+            <th>Essential Crown<br/><span style="color:var(--gold);font-size:1.2rem;">$149</span></th>
+            <th>Royal Crown<br/><span style="color:var(--gold);font-size:1.2rem;">$249</span></th>
+            <th>Imperial Crown<br/><span style="color:var(--gold);font-size:1.2rem;">$399</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bedrooms covered</td><td>Up to 2</td><td>Up to 4</td><td>Unlimited</td></tr>
+          <tr><td>Vacuuming & mopping</td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Bathroom deep scrub</td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Kitchen cleaning</td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Inside oven & fridge</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Interior windows</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Cabinet interiors</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Laundry & linen service</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Dedicated team</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Garage & outdoor areas</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Priority scheduling</td><td><i class="fas fa-times cross"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr><td>Satisfaction guarantee</td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td><td><i class="fas fa-check check"></i></td></tr>
+          <tr>
+            <td></td>
+            <td><a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.82rem;">Book</a></td>
+            <td><a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:0.82rem;">Book</a></td>
+            <td><a href="contact.html" class="btn btn-outline" style="padding:10px 20px;font-size:0.82rem;">Book</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADD-ONS ============ -->
+<section class="section addons">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="tag">Enhance Your Clean</span>
+      <h2 class="section-title">Premium Add-Ons</h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-top:16px;">Customize any package with these premium add-on services.</p>
+    </div>
+    <div class="addons__grid">
+      <div class="addon-card reveal delay-1">
+        <div class="addon-card__icon"><i class="fas fa-couch"></i></div>
+        <div>
+          <h3>Upholstery Cleaning</h3>
+          <p>Deep steam cleaning of sofas, chairs, and fabric surfaces.</p>
+          <div class="price">From $89</div>
+        </div>
+      </div>
+      <div class="addon-card reveal delay-2">
+        <div class="addon-card__icon"><i class="fas fa-window-maximize"></i></div>
+        <div>
+          <h3>Exterior Window Wash</h3>
+          <p>Full exterior glass cleaning for a crystal-clear view.</p>
+          <div class="price">From $69</div>
+        </div>
+      </div>
+      <div class="addon-card reveal delay-3">
+        <div class="addon-card__icon"><i class="fas fa-shirt"></i></div>
+        <div>
+          <h3>Laundry & Folding</h3>
+          <p>Wash, dry, fold, and organize your laundry professionally.</p>
+          <div class="price">From $55</div>
+        </div>
+      </div>
+      <div class="addon-card reveal delay-1">
+        <div class="addon-card__icon"><i class="fas fa-refrigerator"></i></div>
+        <div>
+          <h3>Fridge Deep Clean</h3>
+          <p>Full interior fridge clean, shelf removal, and deodorizing.</p>
+          <div class="price">From $45</div>
+        </div>
+      </div>
+      <div class="addon-card reveal delay-2">
+        <div class="addon-card__icon"><i class="fas fa-leaf"></i></div>
+        <div>
+          <h3>Eco-Fragrance Service</h3>
+          <p>Premium natural fragrance treatment throughout your home.</p>
+          <div class="price">From $35</div>
+        </div>
+      </div>
+      <div class="addon-card reveal delay-3">
+        <div class="addon-card__icon"><i class="fas fa-garage"></i></div>
+        <div>
+          <h3>Garage Cleaning</h3>
+          <p>Full garage sweep, wash, and organization service.</p>
+          <div class="price">From $99</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE ============ -->
+<section class="cta-banner">
+  <div class="container reveal text-center">
+    <div style="font-size:3rem;margin-bottom:16px;">👑</div>
+    <span class="tag" style="color:var(--gold-light);border-color:rgba(232,213,163,0.3);">Our Promise</span>
+    <h2 class="cta-banner__title">100% Satisfaction Guarantee</h2>
+    <p class="cta-banner__sub">If you're not completely satisfied with any aspect of our service, we will return and re-clean — at absolutely no charge. No questions asked. That's the Cellar Crown promise.</p>
+    <a href="contact.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book With Confidence</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-name">Cellar Crown</div>
+        <div class="footer__brand-tag">Premium Cleaning Services</div>
+        <p class="footer__brand-desc">Delivering white-glove cleaning excellence to homes and businesses.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="footer__social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Packages</h4>
+        <ul>
+          <li><a href="packages.html">Essential Crown — $149</a></li>
+          <li><a href="packages.html">Royal Crown — $249</a></li>
+          <li><a href="packages.html">Imperial Crown — $399</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <div class="footer__contact-item"><i class="fas fa-envelope"></i><span>contactglanders@gmail.com</span></div>
+        <div class="footer__contact-item"><i class="fas fa-phone"></i><span>+1 (800) 000-0000</span></div>
+        <div class="footer__contact-item"><i class="fas fa-clock"></i><span>Mon–Sat: 7:00 AM – 7:00 PM</span></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Cellar Crown. All rights reserved.</p>
+      <div class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop"><i class="fas fa-chevron-up"></i></button>
+<!-- WhatsApp Chat Widget -->
+<div id="whatsapp-widget">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup__header">
+      <div class="wa-popup__avatar"><i class="fab fa-whatsapp"></i></div>
+      <div class="wa-popup__info">
+        <h4>Cellar Crown</h4>
+        <p>Online — typically replies instantly</p>
+      </div>
+    </div>
+    <div class="wa-popup__body">
+      <div class="wa-chat-bubble">Hi there! 👋 Ready for a spotless home? Chat with us on WhatsApp for a fast quote or to book your cleaning today.</div>
+    </div>
+    <div class="wa-popup__footer">
+      <div class="wa-input-row">
+        <input type="text" id="waMessage" placeholder="Type a message..." />
+        <button class="wa-send-btn" id="waSendBtn" aria-label="Send WhatsApp message"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+  <button id="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp" id="waIcon"></i>
+    <span class="wa-badge">1</span>
+  </button>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  // Billing Toggle
+  const toggle = document.getElementById('billingToggle');
+  const labelOne = document.getElementById('toggleOneTime');
+  const labelRec = document.getElementById('toggleRecurring');
+  const prices = [
+    { id: 'p1', one: 149, rec: 119 },
+    { id: 'p2', one: 249, rec: 199 },
+    { id: 'p3', one: 399, rec: 319 },
+  ];
+  let isRecurring = false;
+  toggle?.addEventListener('click', () => {
+    isRecurring = !isRecurring;
+    toggle.classList.toggle('on', isRecurring);
+    labelOne.classList.toggle('active', !isRecurring);
+    labelRec.classList.toggle('active', isRecurring);
+    prices.forEach(p => {
+      const el = document.getElementById(p.id);
+      if (el) el.textContent = isRecurring ? p.rec : p.one;
+    });
+  });
+</script>
+</body>
+</html>
